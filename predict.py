@@ -43,6 +43,6 @@ def predict_house_price():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host=https://young-waters-43006.herokuapp.com, port=port)
+    app.run(host='http://young-waters-43006.herokuapp.com', port=port)
 
 
