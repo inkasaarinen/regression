@@ -19,7 +19,7 @@ model_coef_with_intercept = numpy.append(model.coef_,model.intercept_)
 # save model
 #output_filename = "/home/ekhnaton/Documents/Inka/housing_model.txt"
 #output_filename = "/home/muti/Documents/housing_model.txt"
-output_filename = '/static/housing_model.txt'
+output_filename = '/app/housing_model.txt'
 with open(output_filename, 'ab') as outfile:
     numpy.savetxt(outfile, model_coef_with_intercept)
 
