@@ -37,7 +37,7 @@ def predict_house_price():
   # format as json
   prediction = {}
   prediction['house_value'] = sum(data*model)
-  prediction['stddev'] = error
+  prediction['stddev'] = float(error)
   prediction_json = json.dumps(prediction)
   
   
