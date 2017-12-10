@@ -25,7 +25,7 @@ def predict_house_price():
   # read model
   #filename = "/home/ekhnaton/Documents/Inka/housing_model.txt"
   #filename = "/home/muti/Documents/housing_model.txt"
-  filename = 'housing_model.txt'
+  filename = '/app/housing_model.txt'
   model=numpy.genfromtxt(filename,delimiter=',',dtype=float,skip_header=0)
   
   # compute prediction
