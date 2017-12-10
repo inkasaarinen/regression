@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 @app.route('/')
-def():
+def test():
   print("hello")
 
 @app.route('/predict', methods=['GET', 'POST'])
