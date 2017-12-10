@@ -3,7 +3,7 @@ import numpy
 
 #filename = "/home/ekhnaton/Documents/Inka/housing.csv"
 #filename = "/home/muti/Downloads/housing.csv"
-filename = '/static/housing.csv'
+filename = '/app/housing.csv'
 data=numpy.genfromtxt(filename,delimiter=',',dtype=float,skip_header=1)
 features = data[:,0:5]
 targets = data[:,5]
@@ -24,4 +24,4 @@ with open(output_filename, 'ab') as outfile:
     numpy.savetxt(outfile, model_coef_with_intercept)
 
 # check results / do cross-validation tjsp.
-
+# xx
