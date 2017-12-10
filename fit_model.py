@@ -1,4 +1,6 @@
 from sklearn import linear_model
+from sklearn import metrics
+from sklearn.model_selection import cross_val_score
 import numpy
 
 #filename = "/home/ekhnaton/Documents/Inka/housing.csv"
@@ -8,13 +10,16 @@ data=numpy.genfromtxt(filename,delimiter=',',dtype=float,skip_header=1)
 features = data[:,0:5]
 targets = data[:,5]
 
-# extract variables to correct format
+model = linear_model.LinearRegression(normalize=True)
 
-model = linear_model.LinearRegression()
+# check that the model looks ok
+mean_error = [abs(numpy.mean(cross_val_score(model,features,targets,cv=10,scoring='neg_mean_absolute_error')))]
+# mean error is 4.29, target range 5-50 => ok
+
+
 model.fit(features, targets) # array of input variables, array of output variables
-model.coef_ # contains the coefficients
-model.intercept_
-model_coef_with_intercept = numpy.append(model.coef_,model.intercept_)
+model_coef_with_intercept = numpy.append(model.coef_,model.intercept_) # include intercept
+
 
 # save model
 #output_filename = "/home/ekhnaton/Documents/Inka/housing_model.txt"
@@ -23,5 +28,10 @@ output_filename = '/app/housing_model.txt'
 with open(output_filename, 'ab') as outfile:
     numpy.savetxt(outfile, model_coef_with_intercept)
 
-# check results / do cross-validation tjsp.
-# xx
+# save mean error
+#output_filename2 = "/home/muti/Documents/model_error.txt"
+output_filename2 = '/app/model_error.txt'
+with open(output_filename2, 'ab') as outfile:
+    numpy.savetxt(outfile, mean_error)
+
+
