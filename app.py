@@ -25,13 +25,13 @@ def predict_house_price():
   data = [crime_rate, avg_number_of_rooms, distance_to_employment_centers, property_tax_rate, pupil_teacher_ratio, intercept]
   
   # read model
-  #filename = "/home/ekhnaton/Documents/Inka/housing_model.txt"
   #filename = "/home/muti/Documents/housing_model.txt"
   filename = '/app/housing_model.txt'
   model=numpy.genfromtxt(filename,delimiter=',',dtype=float,skip_header=0)
   
   # read error
   filename2 = '/app/model_error.txt'
+  #filename2 = '/home/muti/Documents/model_error.txt'
   error = numpy.genfromtxt(filename2,delimiter=',',dtype=float,skip_header=0)
   
   # format as json
