@@ -6,9 +6,6 @@ from flask import request
 import os
 
 app = Flask(__name__)
-@app.route('/')
-def test():
-  return "hello world"
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict_house_price():
@@ -33,13 +30,14 @@ def predict_house_price():
   filename = '/app/housing_model.txt'
   model=numpy.genfromtxt(filename,delimiter=',',dtype=float,skip_header=0)
   
-  # compute prediction
-  #prediction = data*model
+  # read error
+  filename2 = '/app/model_error.txt'
+  error = numpy.genfromtxt(filename2,delimiter=',',dtype=float,skip_header=0)
   
   # format as json
   prediction = {}
   prediction['house_value'] = sum(data*model)
-  #prediction['stddev'] = ??
+  prediction['stddev'] = error
   prediction_json = json.dumps(prediction)
   
   

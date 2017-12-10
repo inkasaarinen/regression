@@ -6,6 +6,7 @@ from flask import request
 import os
 
 app = Flask(__name__)
+
 @app.route('/predict', methods=['GET', 'POST'])
 def predict_house_price():
   # check and parse input json
