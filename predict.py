@@ -3,6 +3,7 @@ import numpy
 from flask import json
 from flask import abort
 from flask import request
+import os
 
 app = Flask(__name__)
 @app.route('/predict', methods=['GET', 'POST'])
