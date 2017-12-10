@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 @app.route('/')
 def test():
-  print("hello")
+  return "hello world"
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict_house_price():
