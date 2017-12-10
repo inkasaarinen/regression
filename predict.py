@@ -40,3 +40,7 @@ def predict_house_price():
   
   return prediction_json
 
+if __name__ == '__main__':
+    app.run()
+
+
